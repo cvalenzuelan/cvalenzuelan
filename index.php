@@ -1,14 +1,17 @@
 <?php
+error_reporting(E_ALL);
+ini_set('display_errors', '1');
+
+require_once 'Models/Jobs.php';
+require_once 'Models/Project.php';
+
 $nombre = 'Cristian Valenzuela Neira';
-$jobs =  [
-	['title' => 'Full Stack Developer','descripcion' => 'PHP, JavaScript, CSS, AJAX, SQL, PostgresQL, Control de versiones'],
-	['title' => 'Full Stack Developer','descripcion' => 'PHP, JavaScript, CSS, SQL, PostgresQL'],
-	['title' => 'DB Admin','descripcion' => 'SQL, PostgresQL']
-];
-$size = count($jobs);
+$size_jobs = count($jobs);
+$size_proyect = count($projects);
+
 ?>
 <!doctype html>
-<html lang="en">
+<html lang="es">
 
 <head>
 	<!-- Required meta tags -->
@@ -53,58 +56,17 @@ $size = count($jobs);
 				<div>
 					<h3 class="border-bottom-gray" >Work Experience</h3>
 					<ul>
-						<?php for ($i=0; $i < $size; $i++) { ?>
-							<li class="work-position">
-							<h5><?php echo $jobs[$i]['title']; ?></h5>
-							<p><?php echo $jobs[$i]['descripcion']; ?></p>
-							<strong>Achievements:</strong>
-							<ul>
-								<li>Lorem ipsum dolor sit amet, 80% consectetuer adipiscing elit.</li>
-								<li>Lorem ipsum dolor sit amet, 80% consectetuer adipiscing elit.</li>
-								<li>Lorem ipsum dolor sit amet, 80% consectetuer adipiscing elit.</li>
-							</ul>
-							</li>
-						<?php } ?>
-						<?php /*$i = 0;
-						do { ?>
-							<li class="work-position">
-							<h5><?php echo $jobs[$i]['title']; ?></h5>
-							<p><?php echo $jobs[$i]['descripcion']; ?></p>
-							<strong>Achievements:</strong>
-							<ul>
-								<li>Lorem ipsum dolor sit amet, 80% consectetuer adipiscing elit.</li>
-								<li>Lorem ipsum dolor sit amet, 80% consectetuer adipiscing elit.</li>
-								<li>Lorem ipsum dolor sit amet, 80% consectetuer adipiscing elit.</li>
-							</ul>
-							</li>
-							<?php 
-						$i++;
-						} while ($i<$size);*/?>
-						<!-- <li class="work-position">
-							<h5><?php echo $jobs[1]['title']; ?></h5>
-							<p><?php echo $jobs[1]['descripcion']; ?></p>
-							<strong>Achievements:</strong>
-							<ul>
-							<li>Lorem ipsum dolor sit amet, 80% consectetuer adipiscing elit.</li>
-							<li>Lorem ipsum dolor sit amet, 80% consectetuer adipiscing elit.</li>
-							<li>Lorem ipsum dolor sit amet, 80% consectetuer adipiscing elit.</li>
-							</ul>
-						</li>
-						<li class="work-position">
-							<h5><?php echo $jobs[2]['title']; ?></h5>
-							<p><?php echo $jobs[2]['descripcion']; ?></p>
-							<strong>Achievements:</strong>
-							<ul>
-								<li>Lorem ipsum dolor sit amet, 80% consectetuer adipiscing elit.</li>
-								<li>Lorem ipsum dolor sit amet, 80% consectetuer adipiscing elit.</li>
-								<li>Lorem ipsum dolor sit amet, 80% consectetuer adipiscing elit.</li>
-							</ul>
-						</li> -->
+						<?php for ($i=0; $i < $size_jobs; $i++) { 
+							printjob ($jobs[$i]);
+						} ?>
 					</ul>
 				</div>
 				<div>
 					<h3 class="border-bottom-gray">Projects</h3>
-					<div class="project">
+					<?php for ($i=0; $i < $size_proyect; $i++) { 
+						printproject ($projects[$i]);
+					} ?>
+					<!-- <div class="project">
 						<h5>Project X</h5>
 						<div class="row">
 							<div class="col-3">
@@ -118,22 +80,7 @@ $size = count($jobs);
 								<span class="badge badge-secondary">CSS</span>
 							</div>
 						</div>
-					</div>
-					<div class="project">
-						<h5>Project X</h5>
-						<div class="row">
-							<div class="col-3">
-								<img id="profile-picture" src="https://ui-avatars.com/api/?name=John+Doe&size=255" alt="">
-							</div>
-							<div class="col">
-								<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Eius earum corporis at accusamus quisquam hic quos vel? Tenetur, ullam veniam consequatur esse quod cum, quam cupiditate assumenda natus maiores aperiam.</p>
-								<strong>Technologies used:</strong>
-								<span class="badge badge-secondary">PHP</span>
-								<span class="badge badge-secondary">HTML</span>
-								<span class="badge badge-secondary">CSS</span>
-							</div>
-						</div>
-					</div>
+					</div> -->
 				</div>
 			</div>
 			<div class="col-3">
@@ -141,16 +88,22 @@ $size = count($jobs);
 				<h4>Backend</h4>
 				<ul>
 					<li>PHP</li>
+					<li>SQL</li>
 				</ul>
 				<h4>Frontend</h4>
 				<ul>
 					<li>HTML</li>
 					<li>CSS</li>
+					<li>AJAX</li>
 				</ul>
 				<h4>Frameworks</h4>
 				<ul>
 					<li>Laravel</li>
 					<li>Bootstrap</li>
+				</ul>
+				<h4>Herramientas</h4>
+				<ul>
+					<li>Git</li>
 				</ul>
 				<h3 class="border-bottom-gray" >Languages</h3>
 				<ul>
@@ -161,7 +114,7 @@ $size = count($jobs);
 		</div>
 		<div id="resume-footer" class="row">
 		<div class="col">
-			Designed by @hectorbenitez
+			Designed by @CValenzuelaN
 		</div>
 		</div>
   	</div>
