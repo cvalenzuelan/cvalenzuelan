@@ -1,13 +1,14 @@
 <?php
+namespace Models;
 require_once 'BaseElement.php';
 
 class Project extends BaseElement{
 
 }
 
-$project1 = new Project('Proyecto 1','Proyecto actual');
+$project1 = new Project('Proyecto 1','Descripcion del Proyecto actual');
 $project1->meses = '126';
-$project2 = new Project('Proyecto 2','Proyecto antiguo');
+$project2 = new Project('Proyecto 2','Descripcion del Proyecto antiguo');
 $project2->meses = '120';
 
 $projects=[
@@ -22,7 +23,7 @@ function printproject ($job){
 				<img id='profile-picture' src='https://ui-avatars.com/api/?name=John+Doe&size=255' alt=''>
 			</div>
 			<div class='col'>
-				<p>".$job->descripcion."</p>
+				<p>".$job->obtenerDescripcion()."</p>
 				<p>".$job->obtenermeses($job->meses)."</p>
 				<strong>Technologies used:</strong>
 				<span class='badge badge-secondary'>PHP</span>

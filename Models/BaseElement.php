@@ -1,6 +1,8 @@
 <?php
+namespace Models;
+require_once 'Printable.php';
 
-class BaseElement{
+class BaseElement implements Printable{
 	private $titulo;
 	public $descripcion;
 	public $meses;
@@ -23,5 +25,8 @@ class BaseElement{
 		$resto_meses = $this->meses % 12;
 		$texto_meses = ($resto_meses>0)?"$resto_meses Meses":"";
 		return "$texto_ano $texto_meses";
+	}
+	public function obtenerDescripcion(){
+		return $this->descripcion;
 	}
 }

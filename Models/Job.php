@@ -1,5 +1,7 @@
 <?php
-require_once 'Models/BaseElement.php';
+namespace Models;
+require_once 'BaseElement.php';
+
 class Job extends BaseElement{
 	public function __construct($titulo, $descripcion){
 		parent::__construct($titulo, $descripcion);	
@@ -13,15 +15,15 @@ class Job extends BaseElement{
 	}
 }
 
-$job1 = new Job('Full Stack Developer','PHP, JavaScript, CSS, AJAX, SQL, PostgresQL, Git');
+$job1 = new Job('Full Stack Developer','Tecnologias usadas: PHP, JavaScript, CSS, AJAX, SQL, PostgresQL, Git');
 $job1->meses = '146';
 // $job1->modificarTitulo('Full Stack Developer');
 // $job1->descripcion = 'PHP, JavaScript, CSS, AJAX, SQL, PostgresQL, Git';
 
-$job2 = new Job('Full Stack Developer','PHP, JavaScript, CSS, SQL, PostgresQL');
+$job2 = new Job('Full Stack Developer','Tecnologias usadas: PHP, JavaScript, CSS, SQL, PostgresQL');
 $job2->meses = '5';
 
-$job3 = new Job('','DBA');
+$job3 = new Job('DBA','Tecnologias usadas: PostgresQL');
 $job3->meses = '130';
 
 $jobs =  [
@@ -31,7 +33,7 @@ $jobs =  [
 function printjob ($job){
 	echo "<li class='work-position'>
 	<h5>".$job->obtenerTitulo()."</h5>
-	<p>".$job->descripcion."</p>
+	<p>".$job->obtenerDescripcion()."</p>
 	<p>".$job->obtenermeses($job->meses)."</p>
 	<strong>Achievements:</strong>
 	<ul>

@@ -1,11 +1,17 @@
 <?php
+namespace Models;
 error_reporting(E_ALL);
 ini_set('display_errors', '1');
+require_once 'vendor/autoload.php';
+require_once 'Models/Job.php'; // Se deben mantener ya que el php.ini apunta a otro DIR
+require_once 'Models/Project.php'; // Se deben mantener ya que el php.ini apunta a otro DIR
 
-require_once 'Models/Jobs.php';
-require_once 'Models/Project.php';
+use Models\Job;
+use Models\Project;
+use Models\Printable;
 
 $nombre = 'Cristian Valenzuela Neira';
+
 $size_jobs = count($jobs);
 $size_proyect = count($projects);
 
